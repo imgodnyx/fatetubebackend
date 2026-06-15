@@ -32,7 +32,7 @@ RUN npm run build
 # 6. Set ONLY the essential, safe runtime variable.
 ENV NODE_ENV=production
 
-EXPOSE 3000
+EXPOSE 4000
 
 # Run migrations and start the server
 # Users MUST provide the real variables via Docker Run / Compose
