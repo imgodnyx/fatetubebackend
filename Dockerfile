@@ -32,8 +32,8 @@ RUN npm run build
 # 6. Set ONLY the essential, safe runtime variable.
 ENV NODE_ENV=production
 
-EXPOSE 4000
+EXPOSE 3000
 
-# Run migrations and start the server
-# Users MUST provide the real variables via Docker Run / Compose
-CMD ["sh", "-c", "npx prisma migrate deploy && node .output/server/index.mjs"]
+# Run migrations and start the Nitro production server
+# We explicitly force Nitro to listen on all interfaces (0.0.0.0) and map to Render's dynamic $PORT
+CMD ["sh", "-c", "npx prisma migrate deploy && HOST=0.0.0.0 PORT=3000 node .output/server/index.mjs"]
